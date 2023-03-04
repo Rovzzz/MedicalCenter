@@ -9,6 +9,27 @@
       Title="Page_Workers">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridWorkers" AutoGenerateColumns="False" IsReadOnly="true">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding login}" Width="*"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding password}" Width="*"/>
+                <DataGridTextColumn Header="IP" Binding="{Binding ip}" Width="*"/>
+                <DataGridTextColumn Header="Последний вход" Binding="{Binding lastenter}" Width="*"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding dolgnost}" Width="*"/>
+                <DataGridTextColumn Header="Анализатор" Binding="{Binding analyzator}" Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

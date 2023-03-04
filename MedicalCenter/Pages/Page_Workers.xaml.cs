@@ -23,6 +23,12 @@ namespace MedicalCenter
         public Page_Workers()
         {
             InitializeComponent();
+            DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
