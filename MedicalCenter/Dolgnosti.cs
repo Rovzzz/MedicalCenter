@@ -12,25 +12,18 @@ namespace MedicalCenter
     using System;
     using System.Collections.Generic;
     
-    public partial class Workers
+    public partial class Dolgnosti
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Workers()
+        public Dolgnosti()
         {
-            this.Results = new HashSet<Results>();
+            this.Workers = new HashSet<Workers>();
         }
     
         public int id { get; set; }
-        public string name { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
-        public string ip { get; set; }
-        public string lastenter { get; set; }
-        public string analyzator { get; set; }
-        public Nullable<int> id_dolgnost { get; set; }
+        public string name_dolognosti { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Results> Results { get; set; }
-        public virtual Dolgnosti Dolgnosti { get; set; }
+        public virtual ICollection<Workers> Workers { get; set; }
     }
 }

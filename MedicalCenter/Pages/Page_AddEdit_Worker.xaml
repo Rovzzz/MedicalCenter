@@ -37,7 +37,7 @@
         <TextBox Grid.Column="1" Grid.Row="3"/>
         <TextBox Grid.Column="1" Grid.Row="4"/>
 
-        <ComboBox Grid.Column="1" Grid.Row="5" x:Name="ComboBox_dolgnosti" DisplayMemberPath="Name"/>
+        <ComboBox Grid.Column="1" Grid.Row="5" x:Name="ComboBox_dolgnosti" DisplayMemberPath="name_dolognosti"/>
 
         <TextBox Grid.Column="1" Grid.Row="6"/>
 

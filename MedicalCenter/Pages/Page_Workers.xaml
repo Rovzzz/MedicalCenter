@@ -20,7 +20,7 @@
                 <DataGridTextColumn Header="Пароль" Binding="{Binding password}" Width="*"/>
                 <DataGridTextColumn Header="IP" Binding="{Binding ip}" Width="*"/>
                 <DataGridTextColumn Header="Последний вход" Binding="{Binding lastenter}" Width="*"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding dolgnost}" Width="*"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Dolgnosti.name_dolognosti}" Width="*"/>
                 <DataGridTextColumn Header="Анализатор" Binding="{Binding analyzator}" Width="*"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>

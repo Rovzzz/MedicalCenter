@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище P_uchprakt_ZlobinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище P_uchprakt_ZlobinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dolgnosti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_dolognosti" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Results">
           <Key>
             <PropertyRef Name="id" />
@@ -55,7 +62,7 @@
           <Property Name="password" Type="varchar(max)" />
           <Property Name="ip" Type="varchar(max)" />
           <Property Name="lastenter" Type="varchar(max)" />
-          <Property Name="dolgnost" Type="varchar(max)" />
+          <Property Name="id_dolgnost" Type="int" />
           <Property Name="analyzator" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Results_Service">
@@ -94,7 +101,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Workers_Dolgnosti">
+          <End Role="Dolgnosti" Type="Self.Dolgnosti" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnosti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="id_dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище P_uchprakt_ZlobinovModelContainer">
+          <EntitySet Name="Dolgnosti" EntityType="Self.Dolgnosti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -112,9 +132,12 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Results" EntitySet="Results" />
           </AssociationSet>
+          <AssociationSet Name="FK_Workers_Dolgnosti" Association="Self.FK_Workers_Dolgnosti">
+            <End Role="Dolgnosti" EntitySet="Dolgnosti" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="P_uchprakt_ZlobinovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -173,9 +196,10 @@
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="lastenter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="dolgnost" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="analyzator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Workers" FromRole="Workers" ToRole="Results" />
+          <Property Name="id_dolgnost" Type="Int32" />
+          <NavigationProperty Name="Dolgnosti" Relationship="P_uchprakt_ZlobinovModel.FK_Workers_Dolgnosti" FromRole="Workers" ToRole="Dolgnosti" />
         </EntityType>
         <Association Name="FK_Results_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
@@ -231,7 +255,32 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Results" EntitySet="Results" />
           </AssociationSet>
+          <EntitySet Name="Dolgnosti" EntityType="P_uchprakt_ZlobinovModel.Dolgnosti" />
+          <AssociationSet Name="FK_Workers_Dolgnosti" Association="P_uchprakt_ZlobinovModel.FK_Workers_Dolgnosti">
+            <End Role="Dolgnosti" EntitySet="Dolgnosti" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Dolgnosti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_dolognosti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Workers" Relationship="P_uchprakt_ZlobinovModel.FK_Workers_Dolgnosti" FromRole="Dolgnosti" ToRole="Workers" />
+        </EntityType>
+        <Association Name="FK_Workers_Dolgnosti">
+          <End Type="P_uchprakt_ZlobinovModel.Dolgnosti" Role="Dolgnosti" Multiplicity="0..1" />
+          <End Type="P_uchprakt_ZlobinovModel.Workers" Role="Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnosti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="id_dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -285,14 +334,22 @@
           <EntitySetMapping Name="Workers">
             <EntityTypeMapping TypeName="P_uchprakt_ZlobinovModel.Workers">
               <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="id_dolgnost" ColumnName="id_dolgnost" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="ip" ColumnName="ip" />
                 <ScalarProperty Name="lastenter" ColumnName="lastenter" />
-                <ScalarProperty Name="dolgnost" ColumnName="dolgnost" />
                 <ScalarProperty Name="analyzator" ColumnName="analyzator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dolgnosti">
+            <EntityTypeMapping TypeName="P_uchprakt_ZlobinovModel.Dolgnosti">
+              <MappingFragment StoreEntitySet="Dolgnosti">
+                <ScalarProperty Name="name_dolognosti" ColumnName="name_dolognosti" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

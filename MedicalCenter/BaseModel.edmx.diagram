@@ -13,6 +13,8 @@
         <AssociationConnector Association="P_uchprakt_ZlobinovModel.FK_Results_Service" ManuallyRouted="false" />
         <AssociationConnector Association="P_uchprakt_ZlobinovModel.FK_Results_Users" ManuallyRouted="false" />
         <AssociationConnector Association="P_uchprakt_ZlobinovModel.FK_Results_Workers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="P_uchprakt_ZlobinovModel.Dolgnosti" Width="1.5" PointX="2.875" PointY="9.875" />
+        <AssociationConnector Association="P_uchprakt_ZlobinovModel.FK_Workers_Dolgnosti" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

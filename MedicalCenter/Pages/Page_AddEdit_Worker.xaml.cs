@@ -23,7 +23,7 @@ namespace MedicalCenter
         public Page_AddEdit_Worker()
         {
             InitializeComponent();
-            ComboBox_dolgnosti.ItemsSource = Entities.GetContext().Workers.ToList();
+            ComboBox_dolgnosti.ItemsSource = Entities.GetContext().Dolgnosti.ToList();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
