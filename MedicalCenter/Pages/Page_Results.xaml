@@ -9,6 +9,29 @@
       Title="Page_Results">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridResults" AutoGenerateColumns="False" IsReadOnly="true">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Users.name}" Width="*"/>
+                <DataGridTextColumn Header="Работник" Binding="{Binding Workers.name}" Width="*"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Service1}" Width="*"/>
+                <DataGridTextColumn Header="Результат" Binding="{Binding result}" Width="*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Service_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Service_Click"/>
+        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Service_Click"/>
+
     </Grid>
 </Page>
