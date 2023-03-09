@@ -30,5 +30,15 @@ namespace MedicalCenter
         {
 
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_AddEdit_Worker());
+        }
     }
 }

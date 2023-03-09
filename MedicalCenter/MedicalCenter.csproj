@@ -73,6 +73,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Page_AddEdit_Worker.xaml.cs">
+      <DependentUpon>Page_AddEdit_Worker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Results.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Page_NavigateMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_AddEdit_Worker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
