@@ -24,3 +24,6 @@
 ![Таблица users.](https://sun9-6.userapi.com/impg/RLva6YMCplKV2A9B5x3UC-7XYVQi3Nt94gL-9g/me6r3DWDJjk.jpg?size=473x394&quality=96&sign=ff0a4d5b3d3c9c015682e2ae84fe0a32&type=album)
 
 ![Таблица users.](https://sun9-80.userapi.com/impg/XKFOcgP2Z7GHn3Lsep4Z_dEOW1HX4DdWAkoDEA/N-upmrQTjnI.jpg?size=599x87&quality=96&sign=5a135da7e5411a8c4714dac54dfb97b9&type=album)
+
+# День 2
+День 2 - https://vk.com/doc476749222_659725691?hash=JQF1Qfqnjs2mAhDdvc9dqII8Hho4SsSC2duCC0KbIgD&dl=VxGj5TngULo0A3FJEz904xD5tzEC44tEeLEyzz6w6jz
