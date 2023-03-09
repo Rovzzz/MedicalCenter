@@ -23,6 +23,22 @@ namespace MedicalCenter
         public Page_Users()
         {
             InitializeComponent();
+            DGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
+        }
+
+        private void BtnEdit_Users_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BtnAdd_Users_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Pages.Page_AddEdit_User());
+        }
+
+        private void BtnDelete_Users_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
