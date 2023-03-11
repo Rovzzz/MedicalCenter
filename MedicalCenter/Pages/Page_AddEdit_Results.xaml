@@ -28,12 +28,12 @@
         <TextBlock Text="Результат" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
         <TextBlock Text="Дата" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
 
-        <TextBox Grid.Column="1" Grid.Row="0"/>
-        <TextBox Grid.Column="1" Grid.Row="1"/>
-        <TextBox Grid.Column="1" Grid.Row="3"/>
-        <TextBox Grid.Column="1" Grid.Row="4"/>
+        <TextBox Text="{Binding result}" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Text="{Binding date}" Grid.Column="1" Grid.Row="4"/>
 
-        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="ComboBox_service_Results" DisplayMemberPath="Service1"/>
+        <ComboBox SelectedItem="{Binding Users}" Grid.Column="1" Grid.Row="0" x:Name="ComboBox_users_Results" DisplayMemberPath="name"/>
+        <ComboBox SelectedItem="{Binding Workers}" Grid.Column="1" Grid.Row="1" x:Name="ComboBox_workers_Results" DisplayMemberPath="name"/>
+        <ComboBox SelectedItem="{Binding Service}" Grid.Column="1" Grid.Row="2" x:Name="ComboBox_service_Results" DisplayMemberPath="Service1"/>
         
         <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="5" Name="BtnSave_AddEdit_Results" Click="BtnSave_AddEdit_Results_Click"/>
 
