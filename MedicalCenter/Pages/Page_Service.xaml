@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MedicalCenter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page_Service">
+      Title="Page_Service" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="DGridService" AutoGenerateColumns="False" IsReadOnly="true">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Сервис" Binding="{Binding Service1}" Width="*"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Service1}" Width="*"/>
                 <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="*"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
