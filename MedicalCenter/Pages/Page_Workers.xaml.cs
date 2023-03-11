@@ -23,7 +23,7 @@ namespace MedicalCenter
         public Page_Workers()
         {
             InitializeComponent();
-            DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
+            //DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -39,6 +39,15 @@ namespace MedicalCenter
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new Page_AddEdit_Worker());
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
+            }
         }
     }
 }

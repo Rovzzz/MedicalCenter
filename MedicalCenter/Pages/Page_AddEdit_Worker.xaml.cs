@@ -20,15 +20,48 @@ namespace MedicalCenter
     /// </summary>
     public partial class Page_AddEdit_Worker : Page
     {
+        private Workers _currentWorkers = new Workers();
         public Page_AddEdit_Worker()
         {
             InitializeComponent();
+            DataContext = _currentWorkers;
             ComboBox_dolgnosti.ItemsSource = Entities.GetContext().Dolgnosti.ToList();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
 
+            if (string.IsNullOrWhiteSpace(_currentWorkers.name))
+                errors.AppendLine("Укажите ФИО сотрудника");
+
+            if (string.IsNullOrWhiteSpace(_currentWorkers.login))
+                errors.AppendLine("Укажите логин сотрудника");
+
+            if (string.IsNullOrWhiteSpace(_currentWorkers.password))
+                errors.AppendLine("Укажите пароль сотрудника");
+
+            if (_currentWorkers.Dolgnosti == null)
+                errors.AppendLine("Укажите должность сотрудника");
+
+            if(errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if (_currentWorkers.id == 0)
+                Entities.GetContext().Workers.Add(_currentWorkers);
+
+            try
+            {
+                Entities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
+                Manager.MainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

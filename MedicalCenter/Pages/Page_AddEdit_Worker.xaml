@@ -31,15 +31,15 @@
         <TextBlock Text="Должность" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
         <TextBlock Text="Анализатор" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment ="Center"/>
 
-        <TextBox Grid.Column="1" Grid.Row="0"/>
-        <TextBox Grid.Column="1" Grid.Row="1"/>
-        <TextBox Grid.Column="1" Grid.Row="2"/>
-        <TextBox Grid.Column="1" Grid.Row="3"/>
-        <TextBox Grid.Column="1" Grid.Row="4"/>
+        <TextBox Text="{Binding name}" Grid.Column="1" Grid.Row="0"/>
+        <TextBox Text="{Binding login}" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Text="{Binding password}" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Text="{Binding ip}" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Text="{Binding lastenter}" Grid.Column="1" Grid.Row="4"/>
 
-        <ComboBox Grid.Column="1" Grid.Row="5" x:Name="ComboBox_dolgnosti" DisplayMemberPath="name_dolognosti"/>
+        <ComboBox SelectedItem="{Binding Dolgnosti}" Grid.Column="1" Grid.Row="5" x:Name="ComboBox_dolgnosti" DisplayMemberPath="name_dolognosti"/>
 
-        <TextBox Grid.Column="1" Grid.Row="6"/>
+        <TextBox Text="{Binding analyzator}" Grid.Column="1" Grid.Row="6"/>
 
         <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="8" Name="BtnSave" Click="BtnSave_Click"/>
 
