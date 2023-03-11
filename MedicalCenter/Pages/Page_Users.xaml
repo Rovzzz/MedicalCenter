@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MedicalCenter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page_Users">
+      Title="Page_Users" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>

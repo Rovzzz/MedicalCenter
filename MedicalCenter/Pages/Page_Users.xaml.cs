@@ -23,7 +23,7 @@ namespace MedicalCenter
         public Page_Users()
         {
             InitializeComponent();
-            DGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
+            //DGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
         }
 
         private void BtnEdit_Users_Click(object sender, RoutedEventArgs e)
@@ -39,6 +39,15 @@ namespace MedicalCenter
         private void BtnDelete_Users_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
+            }
         }
     }
 }
