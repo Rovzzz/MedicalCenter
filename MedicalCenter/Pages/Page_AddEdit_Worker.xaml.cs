@@ -21,9 +21,15 @@ namespace MedicalCenter
     public partial class Page_AddEdit_Worker : Page
     {
         private Workers _currentWorkers = new Workers();
-        public Page_AddEdit_Worker()
+        public Page_AddEdit_Worker(Workers selectedWorkers)
         {
             InitializeComponent();
+
+            if(selectedWorkers != null)
+            {
+                _currentWorkers = selectedWorkers;
+            }
+
             DataContext = _currentWorkers;
             ComboBox_dolgnosti.ItemsSource = Entities.GetContext().Dolgnosti.ToList();
         }

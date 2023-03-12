@@ -28,6 +28,7 @@ namespace MedicalCenter
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new Page_AddEdit_Worker((sender as Button).DataContext as Workers));
 
         }
 
@@ -38,7 +39,7 @@ namespace MedicalCenter
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Page_AddEdit_Worker());
+            Manager.MainFrame.Navigate(new Page_AddEdit_Worker(null));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
