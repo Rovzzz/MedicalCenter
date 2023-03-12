@@ -21,9 +21,15 @@ namespace MedicalCenter.Pages
     public partial class Page_AddEdit_Results : Page
     {
         private Results _currentResults = new Results();
-        public Page_AddEdit_Results()
+        public Page_AddEdit_Results(Results selectedResults)
         {
             InitializeComponent();
+
+            if(selectedResults != null)
+            {
+                _currentResults= selectedResults;
+            }
+
             DataContext = _currentResults;
             ComboBox_service_Results.ItemsSource = Entities.GetContext().Service.ToList();
             ComboBox_users_Results.ItemsSource = Entities.GetContext().Users.ToList();
