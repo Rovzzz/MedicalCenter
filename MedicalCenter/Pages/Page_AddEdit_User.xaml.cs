@@ -21,9 +21,15 @@ namespace MedicalCenter.Pages
     public partial class Page_AddEdit_User : Page
     {
         private Users _currentUsers = new Users();
-        public Page_AddEdit_User()
+        public Page_AddEdit_User(Users selectedUsers)
         {
             InitializeComponent();
+
+            if(selectedUsers != null)
+            {
+                _currentUsers = selectedUsers;
+            }
+
             DataContext = _currentUsers;
         }
 

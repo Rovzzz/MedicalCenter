@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalCenter.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,12 @@ namespace MedicalCenter
 
         private void BtnEdit_Users_Click(object sender, RoutedEventArgs e)
         {
-            
+            Manager.MainFrame.Navigate(new Page_AddEdit_User((sender as Button).DataContext as Users));
         }
 
         private void BtnAdd_Users_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.Page_AddEdit_User());
+            Manager.MainFrame.Navigate(new Pages.Page_AddEdit_User(null));
         }
 
         private void BtnDelete_Users_Click(object sender, RoutedEventArgs e)
