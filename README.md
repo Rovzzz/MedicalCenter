@@ -27,3 +27,6 @@
 
 # День 2
 День 2 - https://vk.com/doc476749222_659725691?hash=JQF1Qfqnjs2mAhDdvc9dqII8Hho4SsSC2duCC0KbIgD&dl=VxGj5TngULo0A3FJEz904xD5tzEC44tEeLEyzz6w6jz
+
+# День 3
+День 3 - https://vk.com/doc476749222_659875788?hash=bNUmpUMHzD7F3ZeCRItkdFRzRHZoOzQghxakhGHJxI0&dl=KFViAEU7o3rSHhUg2X8TcRrKtA0siafztGmBX94NJ3o
