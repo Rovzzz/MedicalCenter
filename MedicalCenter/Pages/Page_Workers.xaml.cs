@@ -34,7 +34,24 @@ namespace MedicalCenter
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var workersForRemoving = DGridWorkers.SelectedItems.Cast<Workers>().ToList();
 
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {workersForRemoving.Count()} элементов?", "Внимание", 
+                MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Entities.GetContext().Workers.RemoveRange(workersForRemoving);
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены !");
+
+                    DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
