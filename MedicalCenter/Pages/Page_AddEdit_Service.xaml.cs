@@ -21,9 +21,15 @@ namespace MedicalCenter.Pages
     public partial class Page_AddEdit_Service : Page
     {
         private Service _currentService = new Service();
-        public Page_AddEdit_Service()
+        public Page_AddEdit_Service(Service selectedService)
         {
             InitializeComponent();
+
+            if(selectedService != null)
+            {
+                _currentService = selectedService;
+            }
+
             DataContext = _currentService;
         }
 
