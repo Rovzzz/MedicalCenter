@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalCenter.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,18 @@ namespace MedicalCenter
     /// </summary>
     public partial class Page_Workers : Page
     {
-        public Page_Workers()
+        private int pageNumber = 0;
+        private int maxpage = 0;
+        private int pageSize = 20;
+
+        List<Workers> workers = new List<Workers>();
+
+        public Page_Workers(Workers worker)
         {
             InitializeComponent();
             //DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
+            workers = CurrentData.db.Workers.ToList();
+            maxpage = workers.Count / pageSize;
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -66,6 +75,33 @@ namespace MedicalCenter
                 Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 DGridWorkers.ItemsSource = Entities.GetContext().Workers.ToList();
             }
+        }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (search.Text != "" && DGridWorkers != null)
+            {
+                workers = workers.Where(n => n.name.ToLower().Contains(search.Text.ToLower())).ToList();
+                DGridWorkers.ItemsSource = workers;
+                maxpage = workers.Count / pageSize;
+            }
+            else
+            {
+                if (DGridWorkers != null)
+                {
+                    workers = CurrentData.workers;
+                    maxpage = workers.Count / pageSize;
+                }
+
+            }
+        }
+
+        private void search_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (search.Text == "Поиск")
+                search.Text = "";
+            else if (search.Text == "")
+                search.Text = "Поиск";
         }
     }
 }

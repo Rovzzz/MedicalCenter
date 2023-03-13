@@ -25,9 +25,9 @@ namespace MedicalCenter
             if (_context == null)
                 _context = new Entities();
             return _context;
-            
+
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -39,5 +39,6 @@ namespace MedicalCenter
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
         public virtual DbSet<Dolgnosti> Dolgnosti { get; set; }
+        public virtual DbSet<HistoryHot> HistoryHot { get; set; }
     }
 }

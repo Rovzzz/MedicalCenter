@@ -18,6 +18,7 @@ namespace MedicalCenter
         public Dolgnosti()
         {
             this.Workers = new HashSet<Workers>();
+            this.HistoryHot = new HashSet<HistoryHot>();
         }
     
         public int id { get; set; }
@@ -25,5 +26,7 @@ namespace MedicalCenter
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Workers> Workers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HistoryHot> HistoryHot { get; set; }
     }
 }

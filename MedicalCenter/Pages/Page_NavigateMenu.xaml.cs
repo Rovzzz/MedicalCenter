@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalCenter.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,22 +28,22 @@ namespace MedicalCenter
 
         private void Button_Click_Workers(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Page_Workers());
+            Manager.MainFrame.Navigate(new Page_Workers(CurrentData.worker));
         }
 
         private void Button_Click_Users(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Page_Users());
+            Manager.MainFrame.Navigate(new Page_Users(CurrentData.worker));
         }
 
         private void Button_Click_Results(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Page_Results());
+            Manager.MainFrame.Navigate(new Page_Results(CurrentData.worker));
         }
 
         private void Button_Click_Service(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Page_Service());
+            Manager.MainFrame.Navigate(new Page_Service(CurrentData.worker));
         }
     }
 }

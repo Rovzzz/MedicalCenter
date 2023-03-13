@@ -1,4 +1,5 @@
-﻿using MedicalCenter.Pages;
+﻿using MedicalCenter.Classes;
+using MedicalCenter.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,17 @@ namespace MedicalCenter
     /// </summary>
     public partial class Page_Service : Page
     {
-        public Page_Service()
+        private int pageNumber = 0;
+        private int maxpage = 0;
+        private int pageSize = 20;
+
+        List<Service> services = new List<Service>();
+        public Page_Service(Workers worker)
         {
             InitializeComponent();
-           //DGridService.ItemsSource = Entities.GetContext().Service.ToList();
+            //DGridService.ItemsSource = Entities.GetContext().Service.ToList();
+            services = CurrentData.db.Service.ToList();
+            maxpage = services.Count / pageSize;
         }
 
         private void BtnEdit_Service_Click(object sender, RoutedEventArgs e)
@@ -66,6 +74,33 @@ namespace MedicalCenter
                 Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 DGridService.ItemsSource = Entities.GetContext().Service.ToList();
             }
+        }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (search.Text != "" && DGridService != null)
+            {
+                services = services.Where(n => n.Service1.ToLower().Contains(search.Text.ToLower())).ToList();
+                DGridService.ItemsSource = services;
+                maxpage = services.Count / pageSize;
+            }
+            else
+            {
+                if (DGridService != null)
+                {
+                    services = CurrentData.services;
+                    maxpage = services.Count / pageSize;
+                }
+
+            }
+        }
+
+        private void search_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (search.Text == "Поиск")
+                search.Text = "";
+            else if (search.Text == "")
+                search.Text = "Поиск";
         }
     }
 }

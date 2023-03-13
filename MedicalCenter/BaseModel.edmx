@@ -12,6 +12,17 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name_dolognosti" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="HistoryHot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data" Type="datetime" />
+          <Property Name="login" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="role" Type="int" />
+          <Property Name="block" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Results">
           <Key>
             <PropertyRef Name="id" />
@@ -65,6 +76,18 @@
           <Property Name="id_dolgnost" Type="int" />
           <Property Name="analyzator" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_HistoryHot_Dolgnosti">
+          <End Role="Dolgnosti" Type="Self.Dolgnosti" Multiplicity="0..1" />
+          <End Role="HistoryHot" Type="Self.HistoryHot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnosti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryHot">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Results_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
           <End Role="Results" Type="Self.Results" Multiplicity="*" />
@@ -115,11 +138,16 @@
         </Association>
         <EntityContainer Name="Хранилище P_uchprakt_ZlobinovModelContainer">
           <EntitySet Name="Dolgnosti" EntityType="Self.Dolgnosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryHot" EntityType="Self.HistoryHot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HistoryHot_Dolgnosti" Association="Self.FK_HistoryHot_Dolgnosti">
+            <End Role="Dolgnosti" EntitySet="Dolgnosti" />
+            <End Role="HistoryHot" EntitySet="HistoryHot" />
+          </AssociationSet>
           <AssociationSet Name="FK_Results_Service" Association="Self.FK_Results_Service">
             <End Role="Service" EntitySet="Service" />
             <End Role="Results" EntitySet="Results" />
@@ -260,6 +288,11 @@
             <End Role="Dolgnosti" EntitySet="Dolgnosti" />
             <End Role="Workers" EntitySet="Workers" />
           </AssociationSet>
+          <EntitySet Name="HistoryHot" EntityType="P_uchprakt_ZlobinovModel.HistoryHot" />
+          <AssociationSet Name="FK_HistoryHot_Dolgnosti" Association="P_uchprakt_ZlobinovModel.FK_HistoryHot_Dolgnosti">
+            <End Role="Dolgnosti" EntitySet="Dolgnosti" />
+            <End Role="HistoryHot" EntitySet="HistoryHot" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Dolgnosti">
           <Key>
@@ -268,6 +301,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name_dolognosti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Workers" Relationship="P_uchprakt_ZlobinovModel.FK_Workers_Dolgnosti" FromRole="Dolgnosti" ToRole="Workers" />
+          <NavigationProperty Name="HistoryHot" Relationship="P_uchprakt_ZlobinovModel.FK_HistoryHot_Dolgnosti" FromRole="Dolgnosti" ToRole="HistoryHot" />
         </EntityType>
         <Association Name="FK_Workers_Dolgnosti">
           <End Type="P_uchprakt_ZlobinovModel.Dolgnosti" Role="Dolgnosti" Multiplicity="0..1" />
@@ -278,6 +312,30 @@
             </Principal>
             <Dependent Role="Workers">
               <PropertyRef Name="id_dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HistoryHot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data" Type="DateTime" Precision="3" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="Int32" />
+          <Property Name="block" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dolgnosti" Relationship="P_uchprakt_ZlobinovModel.FK_HistoryHot_Dolgnosti" FromRole="HistoryHot" ToRole="Dolgnosti" />
+        </EntityType>
+        <Association Name="FK_HistoryHot_Dolgnosti">
+          <End Type="P_uchprakt_ZlobinovModel.Dolgnosti" Role="Dolgnosti" Multiplicity="0..1" />
+          <End Type="P_uchprakt_ZlobinovModel.HistoryHot" Role="HistoryHot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnosti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryHot">
+              <PropertyRef Name="role" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -349,6 +407,18 @@
             <EntityTypeMapping TypeName="P_uchprakt_ZlobinovModel.Dolgnosti">
               <MappingFragment StoreEntitySet="Dolgnosti">
                 <ScalarProperty Name="name_dolognosti" ColumnName="name_dolognosti" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryHot">
+            <EntityTypeMapping TypeName="P_uchprakt_ZlobinovModel.HistoryHot">
+              <MappingFragment StoreEntitySet="HistoryHot">
+                <ScalarProperty Name="block" ColumnName="block" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="data" ColumnName="data" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

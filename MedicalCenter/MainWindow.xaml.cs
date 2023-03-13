@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalCenter.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace MedicalCenter
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Page_NavigateMenu());
+            MainFrame.Navigate(new Pages.Page_Autorization());
             Manager.MainFrame = MainFrame;
         }
 
@@ -42,6 +43,17 @@ namespace MedicalCenter
             {
                 BtnBack.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CurrentData.db = new Entities();
+            CurrentData.results = CurrentData.db.Results.ToList();
+            CurrentData.users = CurrentData.db.Users.ToList();
+            CurrentData.services = CurrentData.db.Service.ToList();
+            CurrentData.workers = CurrentData.db.Workers.ToList();
+            CurrentData.types = CurrentData.db.Dolgnosti.ToList();
+            CurrentData.historyHots = CurrentData.db.HistoryHot.ToList();
         }
     }
 }
