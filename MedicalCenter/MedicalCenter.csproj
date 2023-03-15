@@ -38,6 +38,9 @@
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.BarCode, Version=23.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.BarCode.23.1.0\lib\net47\Aspose.BarCode.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BarcodeGenerate.xaml.cs">
+      <DependentUpon>BarcodeGenerate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +82,7 @@
     <Compile Include="CaptchaWindow.xaml.cs">
       <DependentUpon>CaptchaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Barcode.cs" />
     <Compile Include="Classes\CurrentData.cs" />
     <Compile Include="Dolgnosti.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
@@ -119,6 +126,10 @@
     <Compile Include="Workers.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Page Include="BarcodeGenerate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CaptchaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

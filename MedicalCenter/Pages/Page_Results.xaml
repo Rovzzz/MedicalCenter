@@ -23,6 +23,7 @@
                 <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Service1}" Width="*"/>
                 <DataGridTextColumn Header="Результат" Binding="{Binding result}" Width="*"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="*"/>
+                
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -30,6 +31,15 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Штрихкод" Name="BtnEdit_Users" Click="BtnBarcode_Users_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
 

@@ -26,6 +26,8 @@ namespace MedicalCenter
         private int maxpage = 0;
         private int pageSize = 20;
 
+        BarcodeGenerate barcodeGenerate;
+
         List<Results> results = new List<Results>();
 
         public Page_Results(Workers worker)
@@ -34,6 +36,8 @@ namespace MedicalCenter
             //DGridResults.ItemsSource = Entities.GetContext().Results.ToList();
             results = CurrentData.db.Results.ToList();
             maxpage = results.Count / pageSize;
+
+            barcodeGenerate = new BarcodeGenerate();
         }
 
         private void BtnEdit_Service_Click(object sender, RoutedEventArgs e)
@@ -102,6 +106,11 @@ namespace MedicalCenter
                 search.Text = "";
             else if (search.Text == "")
                 search.Text = "Поиск";
+        }
+
+        private void BtnBarcode_Users_Click(object sender, RoutedEventArgs e)
+        {
+            barcodeGenerate.Show();
         }
     }
 }
