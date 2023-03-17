@@ -14,7 +14,7 @@
             <RowDefinition/>
             <RowDefinition Height="0.2*" MaxHeight="0.8in"/>
         </Grid.RowDefinitions>
-        <Button Style="{StaticResource Button}" Content="На главную" HorizontalAlignment="Left" Click="btnBack_Click"/>
+        <Button  Style="{StaticResource Button}" Content="На главную" HorizontalAlignment="Left" Click="btnBack_Click"/>
         <TextBox x:Name="search" Text="Поиск" Margin="2in 0.1in" Padding="10 0" GotFocus="search_GotFocus" LostFocus="search_GotFocus" TextChanged="TBoxSearch_TextChanged"/>
         <DataGrid x:Name="DataGridHistory" Grid.Row="1" AutoGenerateColumns="False" HorizontalGridLinesBrush="#46B29D" VerticalGridLinesBrush="#46B29D" IsReadOnly="True" >
             <FrameworkElement.Resources>
