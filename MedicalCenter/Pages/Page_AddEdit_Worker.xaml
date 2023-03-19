@@ -41,7 +41,7 @@
 
         <TextBox Text="{Binding analyzator}" Grid.Column="1" Grid.Row="6"/>
 
-        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="8" Name="BtnSave" Click="BtnSave_Click"/>
+        <Button Style="{StaticResource Button}" Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="8" Name="BtnSave" Click="BtnSave_Click"/>
 
     </Grid>
 </Page>

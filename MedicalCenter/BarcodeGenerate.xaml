@@ -24,7 +24,7 @@
             <ComboBoxItem Content="PDF417"></ComboBoxItem>
         </ComboBox>
 
-        <Button Name="btnGenerate" Click="btnGenerate_Click" Content="Сгенерировать штрихкод" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Height="28" Width="273" FontSize="14" FontWeight="Bold"/>
+        <Button Style="{StaticResource Button}" Name="btnGenerate" Click="btnGenerate_Click" Content="Сгенерировать штрихкод" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Height="28" Width="273" FontSize="14" FontWeight="Bold"/>
         <Label Content="Введите текст:" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox Name="tbCodeText" TextWrapping="Wrap" Margin="10,123,517,134" Width="273" Height="125"/>
         <Label Content="Выберите формат изображения:" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>

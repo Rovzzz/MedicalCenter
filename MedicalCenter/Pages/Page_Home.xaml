@@ -20,7 +20,7 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.ColumnSpan="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Окно навигации" x:Name="Btn_Navigation" Click="Btn_Navigation_Click" Height="50" Width="150"/>
+        <Button Style="{StaticResource Button}" Grid.ColumnSpan="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Окно навигации" x:Name="Btn_Navigation" Click="Btn_Navigation_Click" Height="50" Width="150"/>
 
         <Image x:Name="avatar" Grid.Column="1" Height="200" Width="200" Source="/Resources/aqq.jpg"/>
         <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -32,7 +32,7 @@
                 <TextBlock Text="Роль: " Width="35" TextAlignment="Right"/>
                 <TextBlock x:Name="tbRole" Text="Администратор"/>
             </StackPanel>
-            <Button Height="35" Width="150" 
+            <Button Style="{StaticResource Button}" Height="35" Width="150" 
                         Margin="0 50 0 0"
                         Content="История входа"
                         x:Name="btn_history"

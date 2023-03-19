@@ -22,10 +22,10 @@
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Content="Работники" Click="Button_Click_Workers" ></Button>
-        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пользователи" Click="Button_Click_Users"></Button>
-        <Button Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Результаты" Click="Button_Click_Results"></Button>
-        <Button Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Сервис" Click="Button_Click_Service"></Button>
+        <Button Style="{StaticResource Button}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Content="Работники" Click="Button_Click_Workers" ></Button>
+        <Button Style="{StaticResource Button}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пользователи" Click="Button_Click_Users"></Button>
+        <Button Style="{StaticResource Button}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Результаты" Click="Button_Click_Results"></Button>
+        <Button Style="{StaticResource Button}" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Сервис" Click="Button_Click_Service"></Button>
 
         <Image Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/MedicalCenter;component/Resources/doctor.png"/>
         <Image Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/MedicalCenter;component/Resources/patient.png" />

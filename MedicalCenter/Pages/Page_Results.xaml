@@ -23,28 +23,20 @@
                 <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Service1}" Width="*"/>
                 <DataGridTextColumn Header="Результат" Binding="{Binding result}" Width="*"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding date}" Width="*"/>
-                
-                <DataGridTemplateColumn Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Service_Click"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
 
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Штрихкод" Name="BtnEdit_Users" Click="BtnBarcode_Users_Click"/>
+                            <Button Style="{StaticResource Button}" Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Service_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Service_Click"/>
-        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Service_Click"/>
+        <Button Style="{StaticResource Button}" Content="Штрихкод"  Grid.Row="1" Name="BtnEdit_Users" Click="BtnBarcode_Users_Click"/>
+        <Button Style="{StaticResource Button}" Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Service_Click"/>
+        <Button Style="{StaticResource Button}" Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Service_Click"/>
 
     </Grid>
 </Page>

@@ -24,7 +24,7 @@
                 <TextBlock Text="Показать пароль" FontSize="16px"/>
                 <CheckBox Name="cbShowPassword" VerticalAlignment="Center" HorizontalAlignment="Center" Width="15px" Height="15px" Margin="5px" Click="cbShowPassword_Click"/>
             </WrapPanel>
-            <Button x:Name="bLogin" Content="Вход" Height="32px" FontSize="18px" BorderBrush="#FFABADB3" Background="White" Click="bLogin_Click"/>
+            <Button Style="{StaticResource Button}" x:Name="bLogin" Content="Вход" Height="32px" FontSize="18px" Click="bLogin_Click"/>
         </StackPanel>
     </Grid>
 </Page>

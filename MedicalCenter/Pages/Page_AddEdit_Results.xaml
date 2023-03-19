@@ -34,8 +34,8 @@
         <ComboBox SelectedItem="{Binding Users}" Grid.Column="1" Grid.Row="0" x:Name="ComboBox_users_Results" DisplayMemberPath="name"/>
         <ComboBox SelectedItem="{Binding Workers}" Grid.Column="1" Grid.Row="1" x:Name="ComboBox_workers_Results" DisplayMemberPath="name"/>
         <ComboBox SelectedItem="{Binding Service}" Grid.Column="1" Grid.Row="2" x:Name="ComboBox_service_Results" DisplayMemberPath="Service1"/>
-        
-        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="5" Name="BtnSave_AddEdit_Results" Click="BtnSave_AddEdit_Results_Click"/>
+
+        <Button Style="{StaticResource Button}"  Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="5" Name="BtnSave_AddEdit_Results" Click="BtnSave_AddEdit_Results_Click"/>
 
     </Grid>
 </Page>

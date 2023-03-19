@@ -19,7 +19,7 @@
             <TextBox Name="tbInput" FontSize="24px" Margin="30 0" Padding="2px"/>
 
             <Grid>
-                <Button Content="Отправить" Width="140px" Margin="30 10" FontSize="24px" HorizontalAlignment="Left"  Click="SendButton_Click"/>
+                <Button Style="{StaticResource Button}" Content="Отправить" Width="140px" Margin="30 10" FontSize="24px" HorizontalAlignment="Left"  Click="SendButton_Click"/>
                 <Button Name="btnRepeat" Width="40px" Margin="30 10" FontSize="24px" HorizontalAlignment="Right" Click="RepeatButton_click">
                     <Button.Background>
                         <ImageBrush  Stretch="Uniform"/>
